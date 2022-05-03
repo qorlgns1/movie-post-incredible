@@ -13,6 +13,7 @@ h2 {
 
 span {
   font-size: 10px;
+  color: #7a7a7a;
 }
 
 body {
@@ -20,23 +21,20 @@ body {
 }
 
 .wrapper {
-  width: 790px;
+  min-width: 630px;
+  max-width: 790px;
   margin: 80px auto;
 }
 
 .container-header {
   position: relative;
-  background: linear-gradient(
-      to bottom,
-      rgba(20, 20, 20, 0) 50%,
-      rgba(20, 20, 20, 0.9) 90%,
-      rgba(20, 20, 20, 1) 100%
-    ),
-    url(../images/cover.png);
+  box-shadow: inset 0 -80px 100px black;
+  background-image: url(../images/cover.png);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 790px;
-  height: 444px;
+  width: 100%;
+  height: 56vw;
+  max-height: 446px;
 }
 
 .container-header > .title:before {
@@ -63,26 +61,22 @@ body {
 }
 
 .container-main {
-  background: linear-gradient(
-      to top,
-      rgba(20, 20, 20, 0) 95%,
-      rgba(20, 20, 20, 1) 100%
-    ),
-    black;
   position: relative;
   box-sizing: border-box;
   color: white;
-  width: 790px;
+  /* width: 790px; */
   background-color: black;
   padding: 20px 20px 40px;
 }
 
 .container-content {
-  width: 66%;
+  min-width: 326px;
+  max-width: 66%;
   display: inline-block;
 }
 
 .container-content > .text-content {
+  color: #7a7a7a;
   font-size: 10px;
   line-height: 16px;
   word-break: keep-all;
@@ -93,10 +87,11 @@ body {
 }
 
 .container-aside {
+  max-width: 178px;
   margin-top: -70px;
   position: absolute;
   display: inline-block;
-  width: 23%;
+  min-width: 23%;
   right: 0;
 }
 
@@ -166,4 +161,48 @@ body {
 
 .container-casts img + img {
   margin-left: -9px;
+}
+
+@media screen and (max-width: 630px) {
+  .wrapper {
+    min-width: 360px;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .container-header {
+    max-height: 308px;
+  }
+
+  .container-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-content {
+    max-width: 100%;
+  }
+
+  .container-aside {
+    position: static;
+    margin-top: 30px;
+  }
+
+  .container-ratings > .wrapper-aside {
+    height: 35px;
+  }
+
+  .star::before {
+    width: 100%;
+  }
+
+  .star:after {
+    width: 100%;
+    left: -70px;
+  }
+
+  .container-casts img {
+    width: 35px;
+    height: 35px;
+  }
 }
